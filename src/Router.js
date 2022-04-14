@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 
 import Nav from './Nav';
 import Public from './Public';
@@ -27,26 +27,26 @@ const Router = () => {
       <Nav 
         current={current} 
       />
-      <Switch>
+      <Routes>
             <Route 
                 exact 
                 path="/" 
-                component={Public}
+                element={<Public />} 
             />
             <Route 
                 exact 
                 path="/protected" 
-                component={Protected} 
+                element={<Protected />} 
             />
             <Route 
                 exact 
                 path="/profile" 
-                component={Profile}
+                element={<Profile />}
             />
             <Route 
-                component={Public}
+                element={<Public />}
             />
-      </Switch>
+      </Routes>
     </HashRouter>
   );
 };
