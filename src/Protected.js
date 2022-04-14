@@ -6,13 +6,20 @@ import { useNavigate } from 'react-router-dom';
 const Protected = () => {
   
     const nav = useNavigate(); 
+
+    const redirectUser = async () => {
+        try {
+            await Auth.currentAuthenticatedUser(); 
+        }
+
+        catch (err) {
+            nav('/profile'); 
+        }
+    };
+    
     useEffect(
       () => {
-          Auth.currentAuthenticatedUser().catch(
-              () => {
-                  nav('/profile')
-                }
-            );
+          redirectUser(); 
         }
         ,[]
     );
