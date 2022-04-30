@@ -43,6 +43,16 @@ const Nav = ({ current }) => {
             Protected
           </Link>
         </Menu.Item>
+        <Menu.Item 
+        key='MorePublic'
+      >
+      <Link 
+        to='/MorePublic'
+      >
+            <HomeOutlined />
+            More Public
+          </Link>
+        </Menu.Item>
       </Menu>
     </div>
   );
